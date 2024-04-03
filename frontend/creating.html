@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+    <script src="js/blockly/node_modules/blockly/blockly_compressed.js"></script>
+    <script src="js/blockly/node_modules/blockly/blocks_compressed.js"></script>
+    <script src="js/blockly/node_modules/blockly/javascript_compressed.js"></script>
+    <script src="js/blockly/node_modules/blockly/msg/en.js"></script>
+	<title></title>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <div class="switch">
+                <div class="switch__item switch-logic switch__item_selected">
+                    Logic
+                </div>
+                <div class="switch__item switch-interface">
+                    Interface
+                </div>
+            </div>
+        </header>
+
+        <content class="content-logic">
+            <div id="blocklyDiv"></div>
+        </content>
+
+        <content class="content-interface content_hidden">
+            interface
+        </content>
+    </div>
+
+    <script defer type="module" src="js/init.js"></script>
+</body>
+</html>
