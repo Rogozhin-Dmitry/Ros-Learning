@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.contrib.auth import views as auth_views
+
 
 # class MyBackend(BaseBackend):
 #     def authenticate(self, request, username=None, password=None):
@@ -38,3 +40,7 @@ from django.shortcuts import render
 #         return dict(list(context.items()) + list(c_def.items()))
 def index(request):
     return render(request, 'index.html')
+
+
+class LoginView(auth_views.LoginView):
+    template_name = 'login.html'
