@@ -1,11 +1,7 @@
-"use strict";
 
-import { toolbox } from "./toolbox.js";
+addCreateElementsListeners()
 
-const workspace = Blockly.inject(document.getElementById("blocklyDiv"), {
-	toolbox,
-});
-
+// NEEDS REFACTORING
 document
 	.getElementsByClassName("switch-logic")[0]
 	.addEventListener("click", function () {

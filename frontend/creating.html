@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="./css/main.css">
 	<link rel="stylesheet" type="text/css" href="./css/interface.css">
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+
     <script src="js/blockly/node_modules/blockly/blockly_compressed.js"></script>
     <script src="js/blockly/node_modules/blockly/blocks_compressed.js"></script>
     <script src="js/blockly/node_modules/blockly/javascript_compressed.js"></script>
@@ -49,7 +51,7 @@
                 </div>
             </div>
             <div class="content-interface__field">
-                <div class="field__elem">
+                <div class="draggable field__elem">
                     Element 1
                     <div class="elem__id">id: 0</div>
                 </div>
@@ -57,6 +59,10 @@
         </content>
     </div>
 
-    <script defer type="module" src="js/init.js"></script>
+    <script defer type="module" src="js/blockly/blockly_init.js"></script>
+    <script defer type="text/javascript" src="js/interface/draggable.js"></script>
+    <script defer type="text/javascript" src="js/globals.js"></script>
+    <script defer type="text/javascript" src="js/interface/add_elem.js"></script>
+    <script defer type="text/javascript" src="js/init.js"></script>
 </body>
 </html>
