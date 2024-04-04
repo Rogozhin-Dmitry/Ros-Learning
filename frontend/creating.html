@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="./css/main.css">
 	<link rel="stylesheet" type="text/css" href="./css/interface.css">
+	<link rel="stylesheet" type="text/css" href="./css/logic.css">
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
 
     <script src="js/blockly/node_modules/blockly/blockly_compressed.js"></script>
@@ -51,18 +52,21 @@
                 </div>
             </div>
             <div class="content-interface__field">
-                <div class="draggable field__elem">
-                    Element 1
-                    <div class="elem__id">id: 0</div>
-                </div>
+
+                <!-- draggables here -->
+
             </div>
         </content>
     </div>
 
+    <script type="text/javascript" src="js/globals.js"></script>
+
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/interface/draggable.js"></script>
+    <script type="text/javascript" src="js/interface/add_elem.js"></script>
+    <script type="text/javascript" src="js/logic/setup_blockly.js"></script>
+
+    <script type="text/javascript" src="js/init.js"></script>
     <script defer type="module" src="js/blockly/blockly_init.js"></script>
-    <script defer type="text/javascript" src="js/interface/draggable.js"></script>
-    <script defer type="text/javascript" src="js/globals.js"></script>
-    <script defer type="text/javascript" src="js/interface/add_elem.js"></script>
-    <script defer type="text/javascript" src="js/init.js"></script>
 </body>
 </html>
