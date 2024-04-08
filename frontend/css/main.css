@@ -6,6 +6,7 @@
 	box-sizing: border-box;
     font-family: arial;
     font-size: 15px;
+    color: var(--text-dark);
 }
 html,body{
 	height: 100%;
@@ -33,6 +34,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 :root {
     --bg-light: #FFFFFF;
     --bg-inactive: #F0F0F0;
+    --bg-secondary: #F0F0F0;
     --bg-accent: #7FA6CB;
     --bg-editor: #F0F0F0;
     --bg-draggable: rgba(122, 122, 122, 0.39);
@@ -85,8 +87,13 @@ content {
 }
 
 .switch__item {
-    transition: all 0.1s;
+    width: 180px;
+    height: 40px;
     font-size: 1.05em;
+}
+
+.switch__item, .button {
+    transition: all 0.1s;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -94,13 +101,16 @@ content {
     background: var(--bg-inactive);
     border: 1px solid var(--border-inactive);
     border-radius: 10px;
-    width: 180px;
-    height: 40px;
+    user-select: none;
 }
 
-.switch__item_selected {
+.switch__item_selected, .button-accent {
     background: var(--bg-accent);
     color: var(--text-light);
     border: 1px solid var(--border-accent);
+}
+
+.button {
+    padding: 8px 13px;
 }
 

@@ -1,9 +1,9 @@
+import "./main/globals.js";
+import "./main/main.js";
+import "./interface/popup.js"
+import * as Draggable from "./interface/init.js";
+import * as Blockly_ from "./logic/init.js"
 
-// INTERFACE
-addCreateElementsListeners()
-
-// MAIN
-switch_logic.addEventListener("click", switchToLogic);
-switch_interface.addEventListener("click", switchToInterface);
-
+Draggable.setupInteract();
+Blockly_.setupBlockly();
 

@@ -2,17 +2,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href=".">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="./css/main.css">
 	<link rel="stylesheet" type="text/css" href="./css/interface.css">
 	<link rel="stylesheet" type="text/css" href="./css/logic.css">
-    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
-
-    <script src="js/blockly/node_modules/blockly/blockly_compressed.js"></script>
-    <script src="js/blockly/node_modules/blockly/blocks_compressed.js"></script>
-    <script src="js/blockly/node_modules/blockly/javascript_compressed.js"></script>
-    <script src="js/blockly/node_modules/blockly/msg/en.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/popup.css">
 	<title></title>
 </head>
 <body>
@@ -59,14 +55,22 @@
         </content>
     </div>
 
-    <script type="text/javascript" src="js/globals.js"></script>
+    <div class="popup__tint popup_hidden">
+        <div class="prompt">
+            <div class="prompt__title">Prompt title</div>
+            <input type="text" class="prompt__input">
+            <div class="prompt__buttons">
+                <div class="prompt__confirm-btn button button-accent">OK</div>
+                <div class="prompt__cancel-btn button">Cancel</div>
+            </div>
+        </div>
+    </div>
 
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/interface/draggable.js"></script>
-    <script type="text/javascript" src="js/interface/add_elem.js"></script>
-    <script type="text/javascript" src="js/logic/setup_blockly.js"></script>
-
-    <script type="text/javascript" src="js/init.js"></script>
-    <script defer type="module" src="js/blockly/blockly_init.js"></script>
+    <script src="js/logic/blockly/node_modules/blockly/blockly_compressed.js"></script>
+    <script src="js/logic/blockly/node_modules/blockly/blocks_compressed.js"></script>
+    <script src="js/logic/blockly/node_modules/blockly/javascript_compressed.js"></script>
+    <script src="js/logic/blockly/node_modules/blockly/msg/en.js"></script>
+    <script type="module" src="js/interface/interact/node_modules/interactjs/dist/interact.js"></script>
+    <script type="module" src="js/init.js"></script>
 </body>
 </html>

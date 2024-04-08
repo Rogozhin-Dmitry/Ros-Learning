@@ -482,53 +482,53 @@ export const toolbox = {
 						},
 					},
 				},
-				{
-					kind: "block",
-					type: "add_text",
-					inputs: {
-						TEXT: {
-							shadow: {
-								type: "text",
-								fields: {
-									TEXT: "abc",
-								},
-							},
-						},
-						COLOR: {
-							shadow: {
-								type: "colour_picker",
-								fields: {
-									COLOUR: "#aa00cc",
-								},
-							},
-						},
-					},
-				},
+				// {
+				// 	kind: "block",
+				// 	type: "add_text",
+				// 	inputs: {
+				// 		TEXT: {
+				// 			shadow: {
+				// 				type: "text",
+				// 				fields: {
+				// 					TEXT: "abc",
+				// 				},
+				// 			},
+				// 		},
+				// 		COLOR: {
+				// 			shadow: {
+				// 				type: "colour_picker",
+				// 				fields: {
+				// 					COLOUR: "#aa00cc",
+				// 				},
+				// 			},
+				// 		},
+				// 	},
+				// },
 
-				{
-					kind: "block",
-					type: "add_listener",
-					inputs: {
-						ID: {
-							shadow: {
-								type: "math_number",
-								fields: {
-									NUM: 4,
-								},
-							},
-						},
-						FUNC: {},
-					},
-				},
+				// {
+				// 	kind: "block",
+				// 	type: "add_listener",
+				// 	inputs: {
+				// 		ID: {
+				// 			shadow: {
+				// 				type: "math_number",
+				// 				fields: {
+				// 					NUM: 4,
+				// 				},
+				// 			},
+				// 		},
+				// 		FUNC: {},
+				// 	},
+				// },
 
-				{
-					kind: "block",
-					type: "change_color",
-					fields: {
-						ELEM: "elem",
-						COLOR: "color",
-					},
-				},
+				// {
+				// 	kind: "block",
+				// 	type: "change_color",
+				// 	fields: {
+				// 		ELEM: "elem",
+				// 		COLOR: "color",
+				// 	},
+				// },
 			],
 		},
 		{

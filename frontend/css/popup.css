@@ -1,0 +1,47 @@
+
+.popup__tint {
+    transition: all 0.3s;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prompt {
+    width: 400px;
+    /* height: 250px; */
+    background: var(--bg-light);
+    padding: 20px;
+    position: relative;
+    border-radius: 10px;
+}
+
+.prompt__title {
+    font-size: 1.5em;
+    margin-bottom: 20px;;
+} 
+
+.prompt__input {
+    border: 1px solid var(--border-content);
+    background: var(--bg-secondary);
+    padding: 5px 10px;
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+.prompt__buttons {
+    display: flex;
+    grid-gap: 10px;
+}
+
+.popup_hidden {
+    opacity: 0;
+    pointer-events: none;
+}
