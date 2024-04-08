@@ -1,6 +1,8 @@
 
 // GLOBAL VARS
 export const popup_hidden_class = "popup_hidden"
+export const field_elem_class = "field__elem"
+export const field_elem_selected_class = "field__elem_selected"
 
 // DOM ELEMENTS
 export const interface_field = getElem("content-interface__field")
@@ -13,8 +15,10 @@ export const prompt_title = getElem("prompt__title")
 export const prompt_input = getElem("prompt__input")
 export const prompt_confirm_btn = getElem("prompt__confirm-btn")
 export const prompt_cancel_btn = getElem("prompt__cancel-btn")
-export const sidebar_items = getAllElems("sidebar__item")
+export const sidebar = getElem("content-interface__sidebar")
+export const body = getElem("body")
 
+export const sidebar_items = getAllElems("sidebar__item")
 
 export function getElem(elem) {
     return document.getElementsByClassName(elem)[0]

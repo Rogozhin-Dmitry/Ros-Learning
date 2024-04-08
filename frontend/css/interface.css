@@ -36,17 +36,21 @@
 }
 
 .field__elem {
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
     user-select: none;
     position: absolute;
-    top: 10px;
-    left: 10px;
     width: 150px;
     height: 100px;
+    /* outline: 1px solid var(--border-inactive) !important; */
     background: var(--bg-draggable);
-    border: 1px dashed var(--border-draggable);
+    z-index: 999;
+    overflow: hidden;
+}
+
+.field__elem_selected {
+    outline: 1px dashed var(--border-draggable) !important;
+    z-index: 1000;
 }
 
 .elem__id {

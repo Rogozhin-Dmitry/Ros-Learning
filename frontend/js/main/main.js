@@ -11,6 +11,15 @@ document.addEventListener("keydown", function (e) {
 	if (e.key == "Escape") {
 		Popup.closePrompt();
 	}
+    if (e.key == "Tab") {
+        e.preventDefault()
+
+        if (Globals.switch_logic.classList.contains("switch__item_selected")) {
+            switchToInterface()
+        } else {
+            switchToLogic()
+        }
+    }
 });
 
 function switchToLogic() {

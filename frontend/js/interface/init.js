@@ -1,35 +1,57 @@
 import * as Globals from "../main/globals.js";
+import * as Elements from "./elements/elements.js";
+import * as Tools from "./tools.js";
 
+const elems = Elements.elements["content"];
+
+// processing contents
+for (let i = 0; i < elems.length; i++) {
+	const elem = elems[i];
+	Globals.sidebar.innerHTML += `
+        <div class="sidebar__item">
+            <div class="item__name" style="display: none">${elem.name}</div>
+            <div class="item__icon"></div>
+            <div class="item__text">${elem.title}</div>
+        </div>
+    `;
+}
+
+// processing styles
 for (let i = 0; i < Globals.sidebar_items.length; i++) {
 	const item = Globals.sidebar_items[i];
-	const div = `
-            <div class="draggable field__elem">
-                ${item.lastElementChild.innerText}
-                <div class="elem__id">id: 0</div>
-            </div>
-        `;
+	const elem = Tools.getElemByName(item.firstElementChild.innerText, elems);
+	Globals.body.innerHTML += elem.style;
+}
+
+// processing contents
+for (let i = 0; i < Globals.sidebar_items.length; i++) {
+	const item = Globals.sidebar_items[i];
+	const elem = Tools.getElemByName(item.firstElementChild.innerText, elems);
+    const e_ = document.createElement("div")
+    e_.innerHTML = elem.content
+    e_.firstElementChild.classList.add(Globals.field_elem_class)
+    e_.firstElementChild.setAttribute("value", elem.init_value)
+
 	item.addEventListener("mousedown", function () {
-		Globals.interface_field.insertAdjacentHTML("beforeend", div);
+		Globals.interface_field.innerHTML += e_.innerHTML;
 	});
 }
 
 function setupInteract() {
-	interact(".draggable")
+	interact(`.${Globals.field_elem_class}`)
 		.resizable({
-			// resize from all edges and corners
+            margin: 4,
 			edges: { left: true, right: true, bottom: true, top: true },
 
 			listeners: {
 				move(event) {
-					let target = event.target;
+					const target = event.target;
 					let x = parseFloat(target.getAttribute("data-x")) || 0;
 					let y = parseFloat(target.getAttribute("data-y")) || 0;
 
-					// update the element's style
 					target.style.width = event.rect.width + "px";
 					target.style.height = event.rect.height + "px";
 
-					// translate when resizing from top or left edges
 					x += event.deltaRect.left;
 					y += event.deltaRect.top;
 
@@ -38,6 +60,7 @@ function setupInteract() {
 
 					target.setAttribute("data-x", x);
 					target.setAttribute("data-y", y);
+
 					// target.textContent =
 					// Math.round(event.rect.width) +
 					// "\u00D7" +
@@ -45,22 +68,19 @@ function setupInteract() {
 				},
 			},
 			modifiers: [
-				// keep the edges inside the parent
 				interact.modifiers.restrictEdges({
 					outer: "parent",
 				}),
 
-				// minimum size
 				interact.modifiers.restrictSize({
-					min: { width: 50, height: 50 },
+					min: { width: 25, height: 25 },
 				}),
 			],
-
-			inertia: true,
+			inertia: false,
 		})
 		.draggable({
 			listeners: { move: window.dragMoveListener },
-			inertia: true,
+			inertia: false,
 			modifiers: [
 				interact.modifiers.restrictRect({
 					restriction: "parent",
@@ -71,19 +91,30 @@ function setupInteract() {
 }
 
 function dragMoveListener(event) {
-	let target = event.target;
-	let x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
-	let y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
+	const target = event.target;
+	const x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
+	const y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
 
-	// translate the element
 	target.style.transform = "translate(" + x + "px, " + y + "px)";
-
-	// update the posiion attributes
 	target.setAttribute("data-x", x);
 	target.setAttribute("data-y", y);
 }
 
-// this function is used later in the resizing and gesture demos
-window.dragMoveListener = dragMoveListener;
+document.addEventListener("mousedown", (e) => {
+    const draggables = Globals.getAllElems(Globals.field_elem_class);
+	if (e.target.classList.contains(Globals.field_elem_class)) {
+        clearAllSelected(draggables)
+        e.target.classList.add(Globals.field_elem_selected_class)
+	} else {
+        clearAllSelected(draggables)
+    }
+});
 
+function clearAllSelected(draggables) {
+    for (let i = 0; i < draggables.length; i++) {
+        draggables[i].classList.remove(Globals.field_elem_selected_class)
+    }
+}
+
+window.dragMoveListener = dragMoveListener;
 export { setupInteract };

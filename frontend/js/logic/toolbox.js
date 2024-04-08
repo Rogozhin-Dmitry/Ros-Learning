@@ -108,7 +108,7 @@ export const toolbox = {
 				{
 					kind: "block",
 					type: "math_number",
-					fields: {
+				fields: {
 						NUM: 123,
 					},
 				},
@@ -531,184 +531,184 @@ export const toolbox = {
 				// },
 			],
 		},
-		{
-			kind: "category",
-			name: "Lists",
-			categorystyle: "list_category",
-			contents: [
-				{
-					kind: "block",
-					type: "lists_create_with",
-				},
-				{
-					kind: "block",
-					type: "lists_create_with",
-				},
-				{
-					kind: "block",
-					type: "lists_repeat",
-					inputs: {
-						NUM: {
-							shadow: {
-								type: "math_number",
-								fields: {
-									NUM: 5,
-								},
-							},
-						},
-					},
-				},
-				{
-					kind: "block",
-					type: "lists_length",
-				},
-				{
-					kind: "block",
-					type: "lists_isEmpty",
-				},
-				{
-					kind: "block",
-					type: "lists_indexOf",
-					inputs: {
-						VALUE: {
-							block: {
-								type: "variables_get",
-							},
-						},
-					},
-				},
-				{
-					kind: "block",
-					type: "lists_getIndex",
-					inputs: {
-						VALUE: {
-							block: {
-								type: "variables_get",
-							},
-						},
-					},
-				},
-				{
-					kind: "block",
-					type: "lists_setIndex",
-					inputs: {
-						LIST: {
-							block: {
-								type: "variables_get",
-							},
-						},
-					},
-				},
-				{
-					kind: "block",
-					type: "lists_getSublist",
-					inputs: {
-						LIST: {
-							block: {
-								type: "variables_get",
-							},
-						},
-					},
-				},
-				{
-					kind: "block",
-					type: "lists_split",
-					inputs: {
-						DELIM: {
-							shadow: {
-								type: "text",
-								fields: {
-									TEXT: ",",
-								},
-							},
-						},
-					},
-				},
-				{
-					kind: "block",
-					type: "lists_sort",
-				},
-				{
-					kind: "block",
-					type: "lists_reverse",
-				},
-			],
-		},
-		{
-			kind: "category",
-			name: "Color",
-			categorystyle: "colour_category",
-			contents: [
-				{
-					kind: "block",
-					type: "colour_picker",
-				},
-				{
-					kind: "block",
-					type: "colour_random",
-				},
-				{
-					kind: "block",
-					type: "colour_rgb",
-					inputs: {
-						RED: {
-							shadow: {
-								type: "math_number",
-								fields: {
-									NUM: 100,
-								},
-							},
-						},
-						GREEN: {
-							shadow: {
-								type: "math_number",
-								fields: {
-									NUM: 50,
-								},
-							},
-						},
-						BLUE: {
-							shadow: {
-								type: "math_number",
-								fields: {
-									NUM: 0,
-								},
-							},
-						},
-					},
-				},
-				{
-					kind: "block",
-					type: "colour_blend",
-					inputs: {
-						COLOUR1: {
-							shadow: {
-								type: "colour_picker",
-								fields: {
-									COLOUR: "#ff0000",
-								},
-							},
-						},
-						COLOUR2: {
-							shadow: {
-								type: "colour_picker",
-								fields: {
-									COLOUR: "#3333ff",
-								},
-							},
-						},
-						RATIO: {
-							shadow: {
-								type: "math_number",
-								fields: {
-									NUM: 0.5,
-								},
-							},
-						},
-					},
-				},
-			],
-		},
+		// {
+		// 	kind: "category",
+		// 	name: "Lists",
+		// 	categorystyle: "list_category",
+		// 	contents: [
+		// 		{
+		// 			kind: "block",
+		// 			type: "lists_create_with",
+		// 		},
+		// 		{
+		// 			kind: "block",
+		// 			type: "lists_create_with",
+		// 		},
+		// 		{
+		// 			kind: "block",
+		// 			type: "lists_repeat",
+		// 			inputs: {
+		// 				NUM: {
+		// 					shadow: {
+		// 						type: "math_number",
+		// 						fields: {
+		// 							NUM: 5,
+		// 						},
+		// 					},
+		// 				},
+		// 			},
+		// 		},
+		// 		{
+		// 			kind: "block",
+		// 			type: "lists_length",
+		// 		},
+		// 		{
+		// 			kind: "block",
+		// 			type: "lists_isEmpty",
+		// 		},
+		// 		{
+		// 			kind: "block",
+		// 			type: "lists_indexOf",
+		// 			inputs: {
+		// 				VALUE: {
+		// 					block: {
+		// 						type: "variables_get",
+		// 					},
+		// 				},
+		// 			},
+		// 		},
+		// 		{
+		// 			kind: "block",
+		// 			type: "lists_getIndex",
+		// 			inputs: {
+		// 				VALUE: {
+		// 					block: {
+		// 						type: "variables_get",
+		// 					},
+		// 				},
+		// 			},
+		// 		},
+		// 		{
+		// 			kind: "block",
+		// 			type: "lists_setIndex",
+		// 			inputs: {
+		// 				LIST: {
+		// 					block: {
+		// 						type: "variables_get",
+		// 					},
+		// 				},
+		// 			},
+		// 		},
+		// 		{
+		// 			kind: "block",
+		// 			type: "lists_getSublist",
+		// 			inputs: {
+		// 				LIST: {
+		// 					block: {
+		// 						type: "variables_get",
+		// 					},
+		// 				},
+		// 			},
+		// 		},
+		// 		{
+		// 			kind: "block",
+		// 			type: "lists_split",
+		// 			inputs: {
+		// 				DELIM: {
+		// 					shadow: {
+		// 						type: "text",
+		// 						fields: {
+		// 							TEXT: ",",
+		// 						},
+		// 					},
+		// 				},
+		// 			},
+		// 		},
+		// 		{
+		// 			kind: "block",
+		// 			type: "lists_sort",
+		// 		},
+		// 		{
+		// 			kind: "block",
+		// 			type: "lists_reverse",
+		// 		},
+		// 	],
+		// },
+		// {
+		// 	kind: "category",
+		// 	name: "Color",
+		// 	categorystyle: "colour_category",
+		// 	contents: [
+		// 		{
+		// 			kind: "block",
+		// 			type: "colour_picker",
+		// 		},
+		// 		{
+		// 			kind: "block",
+		// 			type: "colour_random",
+		// 		},
+		// 		{
+		// 			kind: "block",
+		// 			type: "colour_rgb",
+		// 			inputs: {
+		// 				RED: {
+		// 					shadow: {
+		// 						type: "math_number",
+		// 						fields: {
+		// 							NUM: 100,
+		// 						},
+		// 					},
+		// 				},
+		// 				GREEN: {
+		// 					shadow: {
+		// 						type: "math_number",
+		// 						fields: {
+		// 							NUM: 50,
+		// 						},
+		// 					},
+		// 				},
+		// 				BLUE: {
+		// 					shadow: {
+		// 						type: "math_number",
+		// 						fields: {
+		// 							NUM: 0,
+		// 						},
+		// 					},
+		// 				},
+		// 			},
+		// 		},
+		// 		{
+		// 			kind: "block",
+		// 			type: "colour_blend",
+		// 			inputs: {
+		// 				COLOUR1: {
+		// 					shadow: {
+		// 						type: "colour_picker",
+		// 						fields: {
+		// 							COLOUR: "#ff0000",
+		// 						},
+		// 					},
+		// 				},
+		// 				COLOUR2: {
+		// 					shadow: {
+		// 						type: "colour_picker",
+		// 						fields: {
+		// 							COLOUR: "#3333ff",
+		// 						},
+		// 					},
+		// 				},
+		// 				RATIO: {
+		// 					shadow: {
+		// 						type: "math_number",
+		// 						fields: {
+		// 							NUM: 0.5,
+		// 						},
+		// 					},
+		// 				},
+		// 			},
+		// 		},
+		// 	],
+		// },
 		{
 			kind: "category",
 			name: "Variables",
