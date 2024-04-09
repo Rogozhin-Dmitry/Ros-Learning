@@ -17,6 +17,10 @@
     padding: 0;
     background: var(--bg-light);
     border-right: 1px solid var(--border-content);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .blocklyToolboxCategory {
@@ -53,3 +57,41 @@
 .blocklyFlyoutBackground {
     fill: var(--bg-light)
 }
+
+.injectionDiv {
+    overflow: visible;
+    display: flex;
+    position: relative;
+}
+
+.show-js-btn {
+    margin: 0 10px 15px;
+    height: 30px;
+}
+
+.js-code-block {
+    transform: translateX(0);
+    transition: all 0.2s;
+    margin-left: 180px;
+    z-index: 69;
+    background: #D9D9D9;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    color: #606060;
+}
+
+.js-code-block__generated-code {
+    color: #606060;
+}
+
+.js-code-block__title {
+    font-size: 1.5em;
+    color: #606060;
+    margin-bottom: 20px;
+}
+
+.js-code-block_hidden {
+    transform: translateX(-150%);
+}
+

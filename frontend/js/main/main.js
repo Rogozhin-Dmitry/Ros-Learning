@@ -22,6 +22,18 @@ document.addEventListener("keydown", function (e) {
     }
 });
 
+export function isSwitchedToLogic() {
+    return Globals.switch_logic.classList.contains("switch__item_selected")
+        ? true
+        : false
+}
+
+export function isSwitchedToInterface() {
+    return Globals.switch_interface.classList.contains("switch__item_selected")
+        ? true
+        : false
+}
+
 function switchToLogic() {
 	Globals.content_logic.classList.remove("content_hidden");
 	Globals.content_interface.classList.add("content_hidden");

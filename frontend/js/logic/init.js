@@ -27,4 +27,42 @@ export function setupBlockly() {
 	function customAlert(msg, callback) {
 		Popup.openAlert(msg, callback);
 	}
+
+	const blockly_toolbox = Globals.getElem("blocklyToolboxDiv");
+	blockly_toolbox.style.display = "flex";
+	const toolbox_show_js_btn = `<div class="button-accent button show-js-btn">Show js code</div>`;
+	blockly_toolbox.insertAdjacentHTML("beforeend", toolbox_show_js_btn);
+
+	const blockly_workspace = Globals.getElem("injectionDiv");
+	const js_code_block = `<div class="js-code-block js-code-block_hidden">
+            <div class="js-code-block__title">Generated JS code</div>
+            <div class="js-code-block__generated-code">Generated JS code</div>
+        </div>`;
+	blockly_workspace.insertAdjacentHTML("afterbegin", js_code_block);
+
+	const show_js_btn = Globals.getElem("show-js-btn");
+	const js_block = Globals.getElem("js-code-block");
+	show_js_btn.addEventListener("click", () => {
+		js_block.classList.toggle("js-code-block_hidden");
+	});
+
+	const generated_js_block = Globals.getElem("js-code-block__generated-code");
+
+    writeJSCode(generated_js_block, workspace)
+
+	workspace.addChangeListener((e) => {
+		if (
+			e.isUiEvent ||
+			e.type == Blockly.Events.FINISHED_LOADING ||
+			workspace.isDragging()
+		) {
+			return;
+		}
+        writeJSCode(generated_js_block, workspace)
+	});
+}
+
+function writeJSCode(js_block, workspace) {
+	const code = javascript.javascriptGenerator.workspaceToCode(workspace);
+    js_block.innerText = code
 }
