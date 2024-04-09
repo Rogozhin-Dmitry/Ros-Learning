@@ -3,35 +3,38 @@ import * as Popup from "../interface/popup.js";
 
 document.addEventListener("mousedown", function (e) {
 	if (e.target.classList.contains("popup__tint")) {
-        Popup.closePopupsInRightOrder()
+		Popup.closePopupsInRightOrder();
 	}
 });
 
 document.addEventListener("keydown", function (e) {
 	if (e.key == "Escape") {
-        Popup.closePopupsInRightOrder()
+		Popup.closePopupsInRightOrder();
 	}
-    if (e.key == "Tab") {
-        e.preventDefault()
-
-        if (Globals.switch_logic.classList.contains("switch__item_selected")) {
-            switchToInterface()
-        } else {
-            switchToLogic()
-        }
-    }
+	if (e.key == "Tab") {
+        e.preventDefault();
+		if (!(Popup.isPromptOpened() || Popup.isAlertOpened())) {
+			if (
+				Globals.switch_logic.classList.contains("switch__item_selected")
+			) {
+				switchToInterface();
+			} else {
+				switchToLogic();
+			}
+		}
+	}
 });
 
 export function isSwitchedToLogic() {
-    return Globals.switch_logic.classList.contains("switch__item_selected")
-        ? true
-        : false
+	return Globals.switch_logic.classList.contains("switch__item_selected")
+		? true
+		: false;
 }
 
 export function isSwitchedToInterface() {
-    return Globals.switch_interface.classList.contains("switch__item_selected")
-        ? true
-        : false
+	return Globals.switch_interface.classList.contains("switch__item_selected")
+		? true
+		: false;
 }
 
 function switchToLogic() {

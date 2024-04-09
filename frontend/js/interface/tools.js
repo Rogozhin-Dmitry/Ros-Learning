@@ -1,4 +1,3 @@
-
 import * as Main from "../main/main.js";
 import * as Globals from "../main/globals.js"
 
@@ -31,6 +30,13 @@ export function updateSelectionByMousedown(e) {
             clearAllSelected(draggables)
         }
     }
+}
+
+export function getFirstElementStyle(elem) {
+    let style = elem.style
+    style = style.split(".")[1];
+    style = style.split("{")[0];
+    return style
 }
 
 function clearAllSelected(draggables) {

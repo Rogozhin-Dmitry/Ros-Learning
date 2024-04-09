@@ -29,8 +29,8 @@ export function setupBlockly() {
 	}
 
 	const blockly_toolbox = Globals.getElem("blocklyToolboxDiv");
-	blockly_toolbox.style.display = "flex";
 	const toolbox_show_js_btn = `<div class="button-accent button show-js-btn">Show js code</div>`;
+	blockly_toolbox.style.display = "flex";
 	blockly_toolbox.insertAdjacentHTML("beforeend", toolbox_show_js_btn);
 
 	const blockly_workspace = Globals.getElem("injectionDiv");
@@ -47,7 +47,6 @@ export function setupBlockly() {
 	});
 
 	const generated_js_block = Globals.getElem("js-code-block__generated-code");
-
     writeJSCode(generated_js_block, workspace)
 
 	workspace.addChangeListener((e) => {

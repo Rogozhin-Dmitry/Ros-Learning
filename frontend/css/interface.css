@@ -28,11 +28,12 @@
 }
 
 .item__icon {
-    width: 30px;
-    height: 20px;
+    width: 30px !important;
+    height: 20px !important;
     background: var(--bg-draggable);
-    border: 1px dashed var(--border-draggable);
-    margin-right: 10px;
+    border: 1px dashed var(--border-draggable) !important;
+    margin-right: 10px !important;
+    padding: 0 !important;
 }
 
 .field__elem {

@@ -9,10 +9,11 @@ document.addEventListener("keydown", (e) => Tools.removeSelectedElementsByDelete
 // processing contents
 for (let i = 0; i < elems.length; i++) {
 	const elem = elems[i];
+    const elem_class = Tools.getFirstElementStyle(elem)
 	Globals.sidebar.innerHTML += `
         <div class="sidebar__item">
             <div class="item__name" style="display: none">${elem.name}</div>
-            <div class="item__icon"></div>
+            <div class="item__icon ${elem_class}"></div>
             <div class="item__text">${elem.title}</div>
         </div>
     `;
@@ -38,6 +39,7 @@ for (let i = 0; i < Globals.sidebar_items.length; i++) {
 		Globals.interface_field.innerHTML += e_.innerHTML;
 	});
 }
+
 
 function setupInteract() {
 	interact(`.${Globals.field_elem_class}`)
