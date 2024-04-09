@@ -9,7 +9,12 @@ document.addEventListener("mousedown", function (e) {
 
 document.addEventListener("keydown", function (e) {
 	if (e.key == "Escape") {
+        const js_block = Globals.getElem("js-code-block");
+        const show_js_btn = Globals.getElem("show-js-btn");
+		js_block.classList.add("js-code-block_hidden");
+        show_js_btn.classList.toggle("button-accent")
 		Popup.closePopupsInRightOrder();
+
 	}
 	if (e.key == "Tab") {
         e.preventDefault();

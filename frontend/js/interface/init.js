@@ -4,12 +4,14 @@ import * as Tools from "./tools.js";
 
 const elems = Elements.elements["content"];
 document.addEventListener("mousedown", Tools.updateSelectionByMousedown);
-document.addEventListener("keydown", (e) => Tools.removeSelectedElementsByDeleteKey(e));
+document.addEventListener("keydown", (e) =>
+	Tools.removeSelectedElementsByDeleteKey(e)
+);
 
 // processing contents
 for (let i = 0; i < elems.length; i++) {
 	const elem = elems[i];
-    const elem_class = Tools.getFirstElementStyle(elem)
+	const elem_class = Tools.getFirstElementStyle(elem);
 	Globals.sidebar.innerHTML += `
         <div class="sidebar__item">
             <div class="item__name" style="display: none">${elem.name}</div>
@@ -34,12 +36,18 @@ for (let i = 0; i < Globals.sidebar_items.length; i++) {
 	e_.innerHTML = elem.content;
 	e_.firstElementChild.classList.add(Globals.field_elem_class);
 	e_.firstElementChild.setAttribute("value", elem.init_value);
+	e_.firstElementChild.setAttribute("l_id", "");
+	e_.firstElementChild.setAttribute("g_id", "");
+	e_.firstElementChild.setAttribute("name", elem.name);
+	e_.firstElementChild.setAttribute("type", elem.type);
+	e_.firstElementChild.setAttribute("data-x", 0);
+	e_.firstElementChild.setAttribute("data-y", 0);
 
 	item.addEventListener("mousedown", function () {
 		Globals.interface_field.innerHTML += e_.innerHTML;
+		Tools.updateSavedElements();
 	});
 }
-
 
 function setupInteract() {
 	interact(`.${Globals.field_elem_class}`)
@@ -64,11 +72,6 @@ function setupInteract() {
 
 					target.setAttribute("data-x", x);
 					target.setAttribute("data-y", y);
-
-					// target.textContent =
-					// Math.round(event.rect.width) +
-					// "\u00D7" +
-					// Math.round(event.rect.height);
 				},
 			},
 			modifiers: [
@@ -83,7 +86,9 @@ function setupInteract() {
 			inertia: false,
 		})
 		.draggable({
-			listeners: { move: window.dragMoveListener },
+			listeners: {
+				move: window.dragMoveListener,
+			},
 			inertia: false,
 			cursorChecker() {
 				return "grab";
@@ -94,7 +99,8 @@ function setupInteract() {
 					endOnly: true,
 				}),
 			],
-		});
+		})
+		.on("dragend resizeend", Tools.updateSavedElements);
 }
 
 function dragMoveListener(event) {
@@ -105,6 +111,8 @@ function dragMoveListener(event) {
 	target.style.transform = "translate(" + x + "px, " + y + "px)";
 	target.setAttribute("data-x", x);
 	target.setAttribute("data-y", y);
+
+	// Tools.updateSavedElements()
 }
 
 window.dragMoveListener = dragMoveListener;

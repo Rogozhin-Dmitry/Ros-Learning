@@ -29,7 +29,7 @@ export function setupBlockly() {
 	}
 
 	const blockly_toolbox = Globals.getElem("blocklyToolboxDiv");
-	const toolbox_show_js_btn = `<div class="button-accent button show-js-btn">Show js code</div>`;
+	const toolbox_show_js_btn = `<div class="button show-js-btn">Show JS code</div>`;
 	blockly_toolbox.style.display = "flex";
 	blockly_toolbox.insertAdjacentHTML("beforeend", toolbox_show_js_btn);
 
@@ -44,6 +44,7 @@ export function setupBlockly() {
 	const js_block = Globals.getElem("js-code-block");
 	show_js_btn.addEventListener("click", () => {
 		js_block.classList.toggle("js-code-block_hidden");
+        show_js_btn.classList.toggle("button-accent")
 	});
 
 	const generated_js_block = Globals.getElem("js-code-block__generated-code");
