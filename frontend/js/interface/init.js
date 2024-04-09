@@ -81,6 +81,9 @@ function setupInteract() {
 		.draggable({
 			listeners: { move: window.dragMoveListener },
 			inertia: false,
+            cursorChecker(action) {
+                return "grab"
+            },
 			modifiers: [
 				interact.modifiers.restrictRect({
 					restriction: "parent",

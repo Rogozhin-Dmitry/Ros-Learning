@@ -1,6 +1,6 @@
 
 .popup__tint {
-    transition: all 0.3s;
+    transition: all 0.2s;
     z-index: 1000;
     position: fixed;
     top: 0;
@@ -13,7 +13,7 @@
     justify-content: center;
 }
 
-.prompt {
+.prompt, .alert {
     width: 400px;
     /* height: 250px; */
     background: var(--bg-light);
@@ -22,7 +22,7 @@
     border-radius: 10px;
 }
 
-.prompt__title {
+.prompt__title, .alert__title {
     font-size: 1.5em;
     margin-bottom: 20px;;
 } 
@@ -36,7 +36,7 @@
     border-radius: 5px;
 }
 
-.prompt__buttons {
+.prompt__buttons, .alert__buttons {
     display: flex;
     grid-gap: 10px;
 }
@@ -45,3 +45,4 @@
     opacity: 0;
     pointer-events: none;
 }
+

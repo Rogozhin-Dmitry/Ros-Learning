@@ -30,10 +30,6 @@
 
         <content class="content-interface content_hidden">
             <div class="content-interface__sidebar">
-                <!-- <div class="sidebar__item"> -->
-                <!--     <div class="item__icon"></div> -->
-                <!--     <div class="item__text">Element 1</div> -->
-                <!-- </div> -->
             </div>
             <div class="content-interface__field">
 
@@ -43,13 +39,22 @@
         </content>
     </div>
 
-    <div class="popup__tint popup_hidden">
+    <div class="popup__tint popup_hidden prompt-popup">
         <div class="prompt">
             <div class="prompt__title">Prompt title</div>
             <input type="text" class="prompt__input">
             <div class="prompt__buttons">
                 <div class="prompt__confirm-btn button button-accent">OK</div>
                 <div class="prompt__cancel-btn button">Cancel</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup__tint popup_hidden alert-popup">
+        <div class="alert">
+            <div class="alert__title">Prompt title</div>
+            <div class="alert__buttons">
+                <div class="alert__confirm-btn button button-accent">OK</div>
             </div>
         </div>
     </div>

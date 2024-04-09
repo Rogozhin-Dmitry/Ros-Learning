@@ -10,11 +10,16 @@ export const switch_logic = getElem("switch-logic")
 export const switch_interface = getElem("switch-interface")
 export const content_logic = getElem("content-logic")
 export const content_interface = getElem("content-interface")
-export const popup = getElem("popup__tint")
+
+export const prompt_popup = getElem("prompt-popup")
 export const prompt_title = getElem("prompt__title")
 export const prompt_input = getElem("prompt__input")
 export const prompt_confirm_btn = getElem("prompt__confirm-btn")
 export const prompt_cancel_btn = getElem("prompt__cancel-btn")
+export const alert_popup = getElem("alert-popup")
+export const alert_title = getElem("alert__title")
+export const alert_confirm_btn = getElem("alert__confirm-btn")
+
 export const sidebar = getElem("content-interface__sidebar")
 export const body = getElem("body")
 

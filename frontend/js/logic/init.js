@@ -8,7 +8,9 @@ export function setupBlockly() {
 	});
 	const blockly_tree_rows = Globals.getAllElems("blocklyTreeRow");
 	const blockly_tree_labels = Globals.getAllElems("blocklyTreeLabel");
+
 	Blockly.dialog.setPrompt(customPrompt);
+	Blockly.dialog.setAlert(customAlert);
 
 	for (let i = 0; i < blockly_tree_rows.length; i++) {
 		const c = blockly_tree_rows[i].style.borderLeftColor;
@@ -18,7 +20,11 @@ export function setupBlockly() {
 		);
 	}
 
-	function customPrompt(title, def, variable) {
-		Popup.openPrompt(title, def, variable);
+	function customPrompt(title, def, callback) {
+		Popup.openPrompt(title, def, callback);
+	}
+
+	function customAlert(msg, callback) {
+		Popup.openAlert(msg, callback);
 	}
 }

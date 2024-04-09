@@ -3,13 +3,13 @@ import * as Popup from "../interface/popup.js";
 
 document.addEventListener("mousedown", function (e) {
 	if (e.target.classList.contains("popup__tint")) {
-		Popup.closePrompt();
+        Popup.closePopupsInRightOrder()
 	}
 });
 
 document.addEventListener("keydown", function (e) {
 	if (e.key == "Escape") {
-		Popup.closePrompt();
+        Popup.closePopupsInRightOrder()
 	}
     if (e.key == "Tab") {
         e.preventDefault()
