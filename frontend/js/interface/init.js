@@ -12,7 +12,7 @@ document.addEventListener("keydown", (e) =>
 for (let i = 0; i < elems.length; i++) {
 	const elem = elems[i];
 	const elem_class = Tools.getFirstElementStyle(elem);
-	Globals.sidebar.innerHTML += `
+	Globals.sidebar_elements.innerHTML += `
         <div class="sidebar__item">
             <div class="item__name" style="display: none">${elem.name}</div>
             <div class="item__icon ${elem_class}"></div>
@@ -24,14 +24,14 @@ for (let i = 0; i < elems.length; i++) {
 // processing styles
 for (let i = 0; i < Globals.sidebar_items.length; i++) {
 	const item = Globals.sidebar_items[i];
-	const elem = Tools.getElemByName(item.firstElementChild.innerText, elems);
+	const elem = Tools.getElemByName(item.firstElementChild.innerText);
 	Globals.body.innerHTML += elem.style;
 }
 
 // processing contents
 for (let i = 0; i < Globals.sidebar_items.length; i++) {
 	const item = Globals.sidebar_items[i];
-	const elem = Tools.getElemByName(item.firstElementChild.innerText, elems);
+	const elem = Tools.getElemByName(item.firstElementChild.innerText);
 	const e_ = document.createElement("div");
 	e_.innerHTML = elem.content;
 	e_.firstElementChild.classList.add(Globals.field_elem_class);
