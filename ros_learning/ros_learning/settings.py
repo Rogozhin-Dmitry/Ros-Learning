@@ -54,7 +54,7 @@ ROOT_URLCONF = "ros_learning.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ["AdminCatalog/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

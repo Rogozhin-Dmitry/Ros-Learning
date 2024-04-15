@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Курсы</title>
+</head>
+<body>
+<h1>Курсы</h1>
+<div>
+    <a href="">Создать курс</a>
+</div>
+<div>
+    <a href="">Персонал</a>
+</div>
+{% for m in courses %}
+<div>
+    <p>{{m}}</p>
+    <div><a href=""> Управление </a></div>
+</div>
+{% endfor %}
+</body>
+</html>
