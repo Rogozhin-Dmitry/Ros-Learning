@@ -19,8 +19,8 @@ document.addEventListener("keydown", function (e) {
                 const show_js_btn = Globals.getElem("show-js-btn");
                 js_block.classList.add("js-code-block_hidden");
                 show_js_btn.classList.toggle("button-accent");
-                Popup.closePopupsInRightOrder();
             }
+            Popup.closePopupsInRightOrder();
 		}
 	}
 	if (e.key == "Tab") {

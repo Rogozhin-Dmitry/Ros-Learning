@@ -22,10 +22,10 @@ export function updateSavedElements() {
         element_obj["height"] = element.offsetHeight
         element_obj["title"] = getElemByName(element_obj["name"], elements).title
         _saved_elements[i] = element_obj
+        getElemByName(element_obj["name"]).updater(element)
 	}
     saved_elements = _saved_elements
     Sidebar.openSidebarMenu()
-    // console.log(saved_elements)
 }
 
 export function getElemByName(name) {

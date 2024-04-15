@@ -22,14 +22,5 @@ export const elements = {
             "style": Styles.indicator,
             "content": Contents.indicator,
         },
-        {
-            "name": "indicator2",
-            "title": "Indicator2",
-            "type": "display",
-            "init_value": 0,
-            "updater": Updaters.indicator2,
-            "style": Styles.indicator2,
-            "content": Contents.indicator2,
-        },
     ]
 }

@@ -37,7 +37,7 @@ for (let i = 0; i < Globals.sidebar_items.length; i++) {
 	e_.firstElementChild.classList.add(Globals.field_elem_class);
 	e_.firstElementChild.setAttribute("value", elem.init_value);
 	e_.firstElementChild.setAttribute("l_id", "");
-	e_.firstElementChild.setAttribute("g_id", "");
+	e_.firstElementChild.setAttribute("g_id", "none");
 	e_.firstElementChild.setAttribute("name", elem.name);
 	e_.firstElementChild.setAttribute("type", elem.type);
 	e_.firstElementChild.setAttribute("data-x", 0);

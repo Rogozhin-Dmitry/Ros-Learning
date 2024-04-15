@@ -46,7 +46,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
     --border-content: #E4E4E4;
     --border-draggable: #282828;
 
-    --text-dark: #282828;
+    --text-dark: #585858;
     --text-light: #FFFFFF;
     --text-draggable: #282828;
 }
@@ -68,6 +68,7 @@ header {
     height: 60px;
     position: relative;
     border-bottom: 1px solid var(--border-content);
+    background: var(--bg-light);
 }
 
 content {
@@ -101,15 +102,15 @@ content {
     justify-content: center;
     align-items: center;
     background: var(--bg-inactive);
-    border: 1px solid var(--border-inactive);
-    border-radius: 10px;
+    /* border: 1px solid var(--border-inactive); */
+    border-radius: 8px;
     user-select: none;
 }
 
 .switch__item_selected, .button-accent {
     background: var(--bg-accent);
     color: var(--text-light);
-    border: 1px solid var(--border-accent);
+    /* border: 1px solid var(--border-accent); */
 }
 
 .button {

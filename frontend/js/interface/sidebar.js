@@ -7,14 +7,13 @@ export function openSidebarMenu() {
 	const elem_data = Tools.saved_elements[selected_elem.getAttribute("l_id")];
 
 	Globals.menu_title.innerText = elem_data.title;
-	Globals.menu_type.innerText = `Type: ${elem_data.type}`;
+	Globals.menu_type.innerText = elem_data.type;
 	Globals.menu_gid_input.value = elem_data.g_id;
 	Globals.menu_dx_input.value = Math.round(elem_data.dx * 10) / 10;
 	Globals.menu_dy_input.value = Math.round(elem_data.dy * 10) / 10;
 	Globals.menu_width_input.value = Math.round(elem_data.width * 10) / 10;
 	Globals.menu_height_input.value = Math.round(elem_data.height * 10) / 10;
 	Globals.menu_value_input.value = elem_data.value;
-
 	Globals.sidebar_menu.classList.remove(Globals.sidebar_menu_hidden_class);
 }
 
@@ -35,7 +34,6 @@ for (let i = 0; i < Globals.menu_inputs.length; i++) {
         _selected_elem.style.height = `${Globals.menu_height_input.value}px`;
         _selected_elem.style.transform = 
             `translate(${Globals.menu_dx_input.value}px, ${Globals.menu_dy_input.value}px)`
-
         Tools.updateSavedElements()
 	});
 }

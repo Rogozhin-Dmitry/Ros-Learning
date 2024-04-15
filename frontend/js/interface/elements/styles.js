@@ -7,8 +7,8 @@ export const button = `
             justify-content: center;
             width: 150px;
             height: 100px;
-            background: #DBDBDB;
-            color: #282828;
+            background: #83a598;
+            color: #fff;
             font-size: 1.5em;
         }
     </style>
@@ -19,17 +19,13 @@ export const indicator = `
         .indicator-elem {
             width: 100px;
             height: 70px;
-            background: #77EE77;
+            background: #fb4934;
+        }
+        .indicator-elem-active {
+            width: 100px;
+            height: 70px;
+            background: #8ec07c;
         }
     </style>
 `
 
-export const indicator2 = `
-    <style>
-        .indicator-elem2 {
-            width: 100px;
-            height: 70px;
-            background: #EE7070;
-        }
-    </style>
-`

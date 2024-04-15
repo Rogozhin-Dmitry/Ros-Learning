@@ -11,8 +11,3 @@ export const indicator = `
     </div>
 `
 
-export const indicator2 = `
-    <div class="indicator-elem2">
-
-    </div>
-`

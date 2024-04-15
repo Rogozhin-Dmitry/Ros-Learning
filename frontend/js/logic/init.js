@@ -8,6 +8,7 @@ export function setupBlockly() {
 	});
 	const blockly_tree_rows = Globals.getAllElems("blocklyTreeRow");
 	const blockly_tree_labels = Globals.getAllElems("blocklyTreeLabel");
+	const blockly_categories = Globals.getAllElems("blocklyToolboxCategory");
 
 	Blockly.dialog.setPrompt(customPrompt);
 	Blockly.dialog.setAlert(customAlert);
