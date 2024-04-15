@@ -1,6 +1,6 @@
 import * as Globals from "./globals.js";
-import * as Popup from "../interface/popup.js";
-import * as Sidebar from "../interface/sidebar.js";
+import * as Popup from "../interface/popupCore.js";
+import * as Sidebar from "../interface/sidebarCore.js";
 
 document.addEventListener("mousedown", function (e) {
 	if (e.target.classList.contains("popup__tint")) {

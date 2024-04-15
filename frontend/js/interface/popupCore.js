@@ -80,14 +80,16 @@ function alertCallback(c) {
 	c();
 }
 
-Globals.prompt_confirm_btn.addEventListener("click", function () {
-	closePromptWithCallback();
-});
+export function setPopupListeners() {
+    Globals.prompt_confirm_btn.addEventListener("click", function () {
+        closePromptWithCallback();
+    });
 
-Globals.prompt_cancel_btn.addEventListener("click", function () {
-	closePrompt();
-});
+    Globals.prompt_cancel_btn.addEventListener("click", function () {
+        closePrompt();
+    });
 
-Globals.alert_confirm_btn.addEventListener("click", function () {
-	closeAlertWithCallback();
-});
+    Globals.alert_confirm_btn.addEventListener("click", function () {
+        closeAlertWithCallback();
+    });
+}

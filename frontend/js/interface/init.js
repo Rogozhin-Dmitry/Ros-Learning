@@ -1,17 +1,25 @@
 import * as Globals from "../main/globals.js";
 import * as Elements from "./elements/elements.js";
-import * as Tools from "./tools.js";
+import * as ElementCore from "./elementCore.js";
+import * as ElementManage from "./elementManage.js";
+import * as Sidebar from "./sidebarCore.js";
+import * as Popup from "./popupCore.js";
+import * as Interact from "./interactCore.js";
+
 
 const elems = Elements.elements["content"];
-document.addEventListener("mousedown", Tools.updateSelectionByMousedown);
+
+document.addEventListener("mousedown", (e) => {
+    ElementManage.updateSelectionByMousedown(e)
+});
 document.addEventListener("keydown", (e) =>
-	Tools.removeSelectedElementsByDeleteKey(e)
+	ElementManage.removeSelectedElementsByDeleteKey(e)
 );
 
-// processing contents
+// processing toolbar contents
 for (let i = 0; i < elems.length; i++) {
 	const elem = elems[i];
-	const elem_class = Tools.getFirstElementStyle(elem);
+	const elem_class = ElementCore.getFirstElementStyle(elem);
 	Globals.sidebar_elements.innerHTML += `
         <div class="sidebar__item">
             <div class="item__name" style="display: none">${elem.name}</div>
@@ -21,99 +29,16 @@ for (let i = 0; i < elems.length; i++) {
     `;
 }
 
-// processing styles
+// processing toolbar styles
 for (let i = 0; i < Globals.sidebar_items.length; i++) {
 	const item = Globals.sidebar_items[i];
-	const elem = Tools.getElemByName(item.firstElementChild.innerText);
+	const elem = ElementCore.getElementObjectByName(item.firstElementChild.innerText);
 	Globals.body.innerHTML += elem.style;
 }
 
-// processing contents
-for (let i = 0; i < Globals.sidebar_items.length; i++) {
-	const item = Globals.sidebar_items[i];
-	const elem = Tools.getElemByName(item.firstElementChild.innerText);
-	const e_ = document.createElement("div");
-	e_.innerHTML = elem.content;
-	e_.firstElementChild.classList.add(Globals.field_elem_class);
-	e_.firstElementChild.setAttribute("value", elem.init_value);
-	e_.firstElementChild.setAttribute("l_id", "");
-	e_.firstElementChild.setAttribute("g_id", "none");
-	e_.firstElementChild.setAttribute("name", elem.name);
-	e_.firstElementChild.setAttribute("type", elem.type);
-	e_.firstElementChild.setAttribute("data-x", 0);
-	e_.firstElementChild.setAttribute("data-y", 0);
+Interact.setupInteract()
+Popup.setPopupListeners()
+Sidebar.setupToolbar()
+Sidebar.setupSidebarMenu()
+Sidebar.setSidebarListeners()
 
-	item.addEventListener("mousedown", function () {
-		Globals.interface_field.innerHTML += e_.innerHTML;
-		Tools.updateSavedElements();
-	});
-}
-
-function setupInteract() {
-	interact(`.${Globals.field_elem_class}`)
-		.resizable({
-			margin: 4,
-			edges: { left: true, right: true, bottom: true, top: true },
-
-			listeners: {
-				move(event) {
-					const target = event.target;
-					let x = parseFloat(target.getAttribute("data-x")) || 0;
-					let y = parseFloat(target.getAttribute("data-y")) || 0;
-
-					target.style.width = event.rect.width + "px";
-					target.style.height = event.rect.height + "px";
-
-					x += event.deltaRect.left;
-					y += event.deltaRect.top;
-
-					target.style.transform =
-						"translate(" + x + "px," + y + "px)";
-
-					target.setAttribute("data-x", x);
-					target.setAttribute("data-y", y);
-				},
-			},
-			modifiers: [
-				interact.modifiers.restrictEdges({
-					outer: "parent",
-				}),
-
-				interact.modifiers.restrictSize({
-					min: { width: 25, height: 25 },
-				}),
-			],
-			inertia: false,
-		})
-		.draggable({
-			listeners: {
-				move: window.dragMoveListener,
-			},
-			inertia: false,
-			cursorChecker() {
-				return "grab";
-			},
-			modifiers: [
-				interact.modifiers.restrictRect({
-					restriction: "parent",
-					endOnly: true,
-				}),
-			],
-		})
-		.on("dragend resizeend", Tools.updateSavedElements);
-}
-
-function dragMoveListener(event) {
-	const target = event.target;
-	const x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
-	const y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
-
-	target.style.transform = "translate(" + x + "px, " + y + "px)";
-	target.setAttribute("data-x", x);
-	target.setAttribute("data-y", y);
-
-	// Tools.updateSavedElements()
-}
-
-window.dragMoveListener = dragMoveListener;
-export { setupInteract };
