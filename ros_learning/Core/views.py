@@ -39,21 +39,22 @@ from django.contrib.auth import views as auth_views
 #         c_def = self.get_user_context(title="Авторизация")
 #         return dict(list(context.items()) + list(c_def.items()))
 
+
 class CustomLoginView(auth_views.LoginView):
-    template_name = 'login.html'
+    template_name = "login.html"
 
 
 class CustomPasswordResetView(auth_views.PasswordResetView):
-    template_name = 'password_reset_form.html'
+    template_name = "password_reset_form.html"
 
 
 class CustomPasswordResetDoneView(auth_views.PasswordResetDoneView):
-    template_name = 'password_reset_done.html'
+    template_name = "password_reset_done.html"
 
 
 class CustomPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
-    template_name = 'password_reset_confirm.html'
+    template_name = "password_reset_confirm.html"
 
 
 class CustomPasswordResetCompleteView(auth_views.PasswordResetCompleteView):
-    template_name = 'password_reset_complete.html'
+    template_name = "password_reset_complete.html"
