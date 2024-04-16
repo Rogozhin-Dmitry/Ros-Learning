@@ -1,51 +1,88 @@
 import * as Globals from "../main/globals.js";
+import * as Main from "../main/main.js"
 import * as Elements from "./elements/elements.js";
-
+import * as Sidebar from "./sidebarCore.js"
 
 export let saved_elements = {};
 
 export function createEmptyElementObject() {
-    return {
-        l_id: undefined,
-        g_id: undefined,
-        value: undefined,
-        name: undefined,
-        title: undefined,
-        type: undefined,
-        dx: undefined,
-        dy: undefined,
-        width: undefined,
-        height: undefined,
-    }
+	return {
+		l_id: undefined,
+		g_id: undefined,
+		value: undefined,
+		name: undefined,
+		title: undefined,
+		type: undefined,
+		dx: undefined,
+		dy: undefined,
+		width: undefined,
+		height: undefined,
+	};
+}
+
+export function saveElements() {
+    updateSavedElements()
+    Sidebar.openSidebarMenu()
+}
+
+export function removeSelectedElements() {
+	getSelectedElement().remove();
+    Sidebar.closeSidebarMenu()
+}
+
+export function removeSelectedElementsByDeleteKey(e) {
+	if (Main.isSwitchedToInterface()) {
+		if (e.key == "Delete") removeSelectedElements();
+	}
+}
+
+export function updateSelectionByMousedown(e) {
+	if (Main.isSwitchedToInterface()) {
+        if (e.target.classList.contains(Globals.field_class)) {
+			clearSelectedElements();
+            Sidebar.closeSidebarMenu()
+		}
+        else {
+            if (e.target.classList.contains(Globals.field_elem_class)) {
+                clearSelectedElements();
+                setSelectedElement(e.target)
+                Sidebar.openSidebarMenu()
+            }
+		} 
+	}
 }
 
 export function updateSavedElements() {
-    setSavedElementsObjects({})
-    const elems = getElements()
+	setSavedElementsObjects({});
+	const elems = getElements();
 
 	for (let i = 0; i < elems.length; i++) {
 		const elem = elems[i];
 		const elem_obj = createEmptyElementObject();
 
-        elem.setAttribute("l_id", i)
-        elem_obj.l_id = i
-        elem_obj.g_id = getElementGID(elem)
-        elem_obj.value = getElementValue(elem)
-        elem_obj.name = getElementName(elem)
-        elem_obj.title = getElementTitle(elem)
-        elem_obj.type = getElementType(elem)
-        elem_obj.dx = getElementDX(elem)
-        elem_obj.dy = getElementDY(elem)
-        elem_obj.width = getElementWidth(elem)
-        elem_obj.height = getElementHeight(elem)
+		elem.setAttribute("l_id", i);
+		elem_obj.l_id = i;
+		elem_obj.g_id = getElementGID(elem);
+		elem_obj.value = getElementValue(elem);
+		elem_obj.name = getElementName(elem);
+		elem_obj.title = getElementTitle(elem);
+		elem_obj.type = getElementType(elem);
+		elem_obj.dx = getElementDX(elem);
+		elem_obj.dy = getElementDY(elem);
+		elem_obj.width = getElementWidth(elem);
+		elem_obj.height = getElementHeight(elem);
 
-        setSavedElementObject(i, elem_obj)
-		updateElement(elem)
+		setSavedElementObject(i, elem_obj);
+		updateElement(elem);
 	}
+	console.log(saved_elements);
 }
 
 export function updateElement(elem) {
-    getElementObjectByName(getElementName(elem)).updater(elem)
+	getElementObjectByName(getElementName(elem)).updater(
+		elem,
+		elem.getAttribute("value")
+	);
 }
 
 export function getElementName(elem) {
@@ -101,11 +138,11 @@ export function setSavedElementsObjects(elems_objs) {
 }
 
 export function setSavedElementObject(l_id, elem_obj) {
-    saved_elements[l_id] = elem_obj
+	saved_elements[l_id] = elem_obj;
 }
 
 export function getSavedElementObject(l_id) {
-    return saved_elements[l_id]
+	return saved_elements[l_id];
 }
 
 export function getElementObjectByName(name) {
@@ -116,8 +153,12 @@ export function getElementObjectByName(name) {
 	return e_;
 }
 
+export function getElementsObjects() {
+	return Elements.elements.content;
+}
+
 export function getSelectedElementLID() {
-    return getElementLID(getSelectedElement())
+	return getElementLID(getSelectedElement());
 }
 
 export function getFirstElementStyle(elem) {
@@ -128,7 +169,7 @@ export function getFirstElementStyle(elem) {
 }
 
 export function clearSelectedElements() {
-    const elems = getElements()
+	const elems = getElements();
 	for (let i = 0; i < elems.length; i++) {
 		elems[i].classList.remove(Globals.field_elem_selected_class);
 	}

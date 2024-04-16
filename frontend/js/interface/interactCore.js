@@ -1,6 +1,5 @@
 import * as Globals from "../main/globals.js";
-import * as ElementManage from "./elementManage.js";
-
+import * as ElementCore from "./elementCore.js";
 
 export function setupInteract() {
 	interact(`.${Globals.field_elem_class}`)
@@ -53,7 +52,7 @@ export function setupInteract() {
 				}),
 			],
 		})
-		.on("dragend resizeend", ElementManage.saveElements);
+		.on("dragend resizeend", ElementCore.saveElements);
 }
 
 function dragMoveListener(event) {

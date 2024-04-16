@@ -22,8 +22,6 @@ export const indicator = `
             background: #fb4934;
         }
         .indicator-elem-active {
-            width: 100px;
-            height: 70px;
             background: #8ec07c;
         }
     </style>

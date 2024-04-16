@@ -8,3 +8,4 @@ export const indicator = function (val) {
     if (val == 1) return 1
     else return 0
 }
+

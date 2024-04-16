@@ -1,14 +1,14 @@
 
-export const indicator = function (elem) {
-    if (elem.getAttribute("value") == "0") {
+export const indicator = function (elem, val) {
+    if (val == "0") {
         elem.classList.remove("indicator-elem-active")
     } else {
         elem.classList.add("indicator-elem-active")
     }
 }
 
-export const button = function (elem) {
-    
+export const button = function (elem, val) {
+    return    
 }
 
 
