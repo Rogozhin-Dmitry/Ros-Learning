@@ -5,7 +5,7 @@ from django.contrib.auth.hashers import check_password
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.contrib.auth import views as auth_views
 
 
@@ -38,9 +38,22 @@ from django.contrib.auth import views as auth_views
 #         context = super().get_context_data(**kwargs)
 #         c_def = self.get_user_context(title="Авторизация")
 #         return dict(list(context.items()) + list(c_def.items()))
-def index(request):
-    return render(request, 'index.html')
 
-
-class LoginView(auth_views.LoginView):
+class CustomLoginView(auth_views.LoginView):
     template_name = 'login.html'
+
+
+class CustomPasswordResetView(auth_views.PasswordResetView):
+    template_name = 'password_reset_form.html'
+
+
+class CustomPasswordResetDoneView(auth_views.PasswordResetDoneView):
+    template_name = 'password_reset_done.html'
+
+
+class CustomPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
+    template_name = 'password_reset_confirm.html'
+
+
+class CustomPasswordResetCompleteView(auth_views.PasswordResetCompleteView):
+    template_name = 'password_reset_complete.html'

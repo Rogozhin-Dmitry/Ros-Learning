@@ -9,6 +9,8 @@
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Войти">
+
+    <p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
 </form>
 </body>
 </html>
