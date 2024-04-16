@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Управление курсом</title>
+</head>
+<body>
+<h1>Управление курсом</h1>
+<form>
+    <a href="/catalog/admin-catalog/courses/">Назад</a>
+</form>
+<div>
+    <p>Название курса</p>
+</div>
+<div>
+    <button>Создать урок</button>
+</div>
+<div>
+    <a href="">Персонал</a>
+</div>
+{% for m in lessons %}
+<div>
+    <p>{{ m.name }}</p>
+    <div><a href="{{ m.get_url }}"> Управление </a><button> Удалить </button></div>
+</div>
+{% endfor %}
+</body>
+</html>

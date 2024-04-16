@@ -1,11 +1,14 @@
 from django.urls import path
-from AdminCatalog.views import CreatingCourses
-from AdminCatalog.views import Courses
-from AdminCatalog.views import Tasks
+from .views import Courses
+from .views import Tasks
+from .views import Lessons
+from .views import CreateCourse
+
+app_name = 'courses'
 
 urlpatterns = [
-    path("admin-catalog/CreateCoursesPage", CreatingCourses.as_view(),
-         name="CreateCoursesPage"),
-    path("admin-catalog/CoursesPage", Courses.as_view(), name="CoursesPage"),
-    path("admin-catalog/Tasks", Tasks.as_view(), name="Tasks"),
+    path("admin-catalog/courses/", Courses.as_view(), name="courses"),
+    path("admin-catalog/courses/<int:pk>/lessons", Lessons.as_view(), name="lessons"),
+    path("admin-catalog/courses/createCourse", CreateCourse.as_view(), name="lessons"),
+    # path("admin-catalog/courses/<int:pk>/lessons/<int:pk>/tasks", Tasks.as_view(), name="tasks"),
 ]

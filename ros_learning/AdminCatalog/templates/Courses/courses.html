@@ -6,17 +6,36 @@
 </head>
 <body>
 <h1>Курсы</h1>
+<!--<form method="post" action="">-->
+<!--        {% csrf_token %}-->
+<!--        <input type="submit" value="Добавить курс" />-->
+<!--</form>-->
 <div>
-    <a href="">Создать курс</a>
+    <input type="text" id="name-inpt">
+    <button id="post-btn">Добавить</button>
 </div>
 <div>
     <a href="">Персонал</a>
 </div>
 {% for m in courses %}
 <div>
-    <p>{{m}}</p>
-    <div><a href=""> Управление </a></div>
+    <div><p>{{ m.name }}</p></div>
+    <div><a href="{{ m.get_url }}"> Управление </a></div>
+    <div><button id="delete"> Удалить </button></div>
 </div>
 {% endfor %}
+<script>
+    const button = document.getElementById('post-btn');
+    button.addEventListener('click', async _ => {
+      try {
+        const response = await fetch('createCourse', {
+          method: 'post',
+        });
+        console.log('Completed!', response);
+      } catch(err) {
+        console.error(`Error: ${err}`);
+      }
+    });
+</script>
 </body>
 </html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Управление задания</title>
+</head>
+<body>
+<h1>Управление задания</h1>
+
+<div>
+    <p>Название задания</p>
+</div>
+<div>
+    <button>Создать задание</button>
+</div>
+
+{% for m in tasks %}
+<div>
+    <p>{{ m.name }}</p>
+<!--    <div><a href="{{ m.get_url }}"> Управление </a><button> Удалить </button></div>-->
+</div>
+{% endfor %}
+</body>
+</html>
