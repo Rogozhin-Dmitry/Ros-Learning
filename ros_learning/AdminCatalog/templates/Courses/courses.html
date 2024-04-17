@@ -6,11 +6,8 @@
 </head>
 <body>
 <h1>Курсы</h1>
-<!--<form method="post" action="">-->
-<!--        {% csrf_token %}-->
-<!--        <input type="submit" value="Добавить курс" />-->
-<!--</form>-->
 <div>
+    <input type="text" id="name-inpt">
     <button id="post-btn">Добавить</button>
 </div>
 <div>
@@ -23,14 +20,20 @@
     <div><button id="delete"> Удалить </button></div>
 </div>
 {% endfor %}
+ {% csrf_token %}
 <script>
     const button = document.getElementById('post-btn');
-    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-
+    const csrf_token = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+    const name = document.getElementById('name-inpt');
+    console.log(csrf_token);
     button.addEventListener('click', async _ => {
       try {
         const response = await fetch('createCourse', {
           method: 'post',
+          headers: {'X-CSRFToken': csrf_token},
+          body: JSON.stringify({
+            'name': name.value
+          })
         });
         console.log('Completed!', response);
       } catch(err) {

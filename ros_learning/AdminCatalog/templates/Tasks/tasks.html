@@ -17,8 +17,32 @@
 {% for m in tasks %}
 <div>
     <p>{{ m.name }}</p>
-<!--    <div><a href="{{ m.get_url }}"> Управление </a><button> Удалить </button></div>-->
+    <div>
+        <a href=""> Управление </a>
+        <button id="delete-btn">Удалить</button>
+    </div>
 </div>
 {% endfor %}
+{% csrf_token %}
+<script>
+    const button = document.getElementById('delete-btn');
+    const csrf_token = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+    const name = "delete";
+    console.log(csrf_token);
+    button.addEventListener('click', async _ => {
+      try {
+        const response = await fetch('tasks', {
+          method: 'delete',
+          headers: {'X-CSRFToken': csrf_token},
+          body: JSON.stringify({
+            'name': name.value
+          })
+        });
+        console.log('Completed!', response);
+      } catch(err) {
+        console.error(`Error: ${err}`);
+      }
+    });
+</script>
 </body>
 </html>

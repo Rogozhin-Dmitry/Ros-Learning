@@ -10,7 +10,7 @@ class Course:
         Course.pk += 1
 
     def get_url(self):
-        return resolve_url('courses:lessons', pk=self.pk)
+        return resolve_url("courses:lessons", courses_pk=self.pk)
 
 
 class Lesson:
@@ -20,9 +20,10 @@ class Lesson:
         self.name = name
         self.pk = Lesson.pk
         Lesson.pk += 1
+        self.course_pk = 0
 
     def get_url(self):
-        return resolve_url('courses:lessons', pk=self.pk)
+        return resolve_url("courses:tasks", courses_pk=self.course_pk, lesson_pk=self.pk)
 
 
 class Task:
@@ -34,7 +35,8 @@ class Task:
         Task.pk += 1
 
     def get_url(self):
-        return resolve_url('courses:tasks', pk=self.pk)
+        return "/"
+        # return resolve_url('courses:tasks', pk=self.pk)
 
 
 class Controll:
@@ -43,16 +45,15 @@ class Controll:
     @staticmethod
     def get_user_courses(pk):
         print("courses")
-        return [Course("Управление реактором"), Course("Как не взорвать реактор"),
-                Course("Как выжить ели умираешь")]
+        return [Course("Управление реактором"), Course("Как не взорвать реактор"), Course("Как выжить ели умираешь")]
 
     @staticmethod
-    def get_user_lessons(pk):
+    def get_courses_lessons(pk):
         print("lessons")
         return [Lesson("Урок 1"), Lesson("Урок 2"), Lesson("Урок 3"), Lesson("Урок 4")]
 
     @staticmethod
-    def get_user_tasks(pk):
+    def get_lessons_tasks(courses_pk, lesson_pk):
         print("task")
         return [Task("Задание 1"), Task("Задание 2"), Task("Задание 3"), Task("Задание 4")]
 
