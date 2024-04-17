@@ -11,7 +11,6 @@
 <!--        <input type="submit" value="Добавить курс" />-->
 <!--</form>-->
 <div>
-    <input type="text" id="name-inpt">
     <button id="post-btn">Добавить</button>
 </div>
 <div>
@@ -26,6 +25,8 @@
 {% endfor %}
 <script>
     const button = document.getElementById('post-btn');
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
     button.addEventListener('click', async _ => {
       try {
         const response = await fetch('createCourse', {
