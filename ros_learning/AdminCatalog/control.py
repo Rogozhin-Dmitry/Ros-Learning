@@ -54,7 +54,6 @@ class Controll:
     def get_lessons_tasks(courses_pk, lesson_pk):
         return [Task("Задание 1"), Task("Задание 2"), Task("Задание 3"), Task("Задание 4")]
 
-
     @staticmethod
     def get_course_by_pk(pk):
         return {}

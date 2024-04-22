@@ -19,13 +19,13 @@
         <p>{{ m.name }}</p></div>
     <div>
         <a href="{{ m.get_url }}"> Управление </a></div>
-        <div>
-            <button id="course_delete"> Удалить </button>
-        </div>
+    <div>
+        <button id="course_delete"> Удалить</button>
     </div>
 </div>
+</div>
 {% endfor %}
- {% csrf_token %}
+{% csrf_token %}
 <script>
     const add_course_button = document.getElementById('add-course-btn');
     const csrf_token = document.getElementsByName('csrfmiddlewaretoken')[0].value;

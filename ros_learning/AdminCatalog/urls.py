@@ -2,6 +2,7 @@ from django.urls import path
 from .views import Courses
 from .views import Tasks
 from .views import Lessons
+
 # from .views import CreateCourse
 
 app_name = "courses"
