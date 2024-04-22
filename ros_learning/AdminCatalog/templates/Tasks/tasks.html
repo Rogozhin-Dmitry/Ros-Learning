@@ -11,7 +11,8 @@
     <p>Название задания</p>
 </div>
 <div>
-    <button>Создать задание</button>
+    <input type="text" id="task-name-input">
+    <button id="add-task-btn">Добавить задание</button>
 </div>
 
 {% for m in tasks %}
@@ -19,19 +20,36 @@
     <p>{{ m.name }}</p>
     <div>
         <a href=""> Управление </a>
-        <button id="delete-btn">Удалить</button>
+        <div>
+            <button id="delete_task_btn"> Удалить </button>
+        </div>
     </div>
 </div>
 {% endfor %}
 {% csrf_token %}
 <script>
-    const button = document.getElementById('delete-btn');
+    const add_task_button = document.getElementById('add-task-btn');
     const csrf_token = document.getElementsByName('csrfmiddlewaretoken')[0].value;
-    const name = "delete";
+    const task_name = document.getElementById('task-name-input');
     console.log(csrf_token);
-    button.addEventListener('click', async _ => {
+    add_task_button.addEventListener('click', async _ => {
       try {
-        const response = await fetch('tasks', {
+        const response = await fetch('', {
+          method: 'post',
+          headers: {'X-CSRFToken': csrf_token},
+          body: JSON.stringify({
+            'name': task_name.value
+          })
+        });
+        console.log('Completed!', response);
+      } catch(err) {
+        console.error(`Error: ${err}`);
+      }
+    });
+    const del_task_button = document.getElementById('delete_task_btn');
+    del_task_button.addEventListener('click', async _ => {
+      try {
+        const response = await fetch('', {
           method: 'delete',
           headers: {'X-CSRFToken': csrf_token},
           body: JSON.stringify({
