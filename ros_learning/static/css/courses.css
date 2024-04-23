@@ -1,0 +1,28 @@
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color:#C6C6C6;
+    width: 350px;
+    height: 130px;
+    border-radius: 5px;
+    border: 2px solid black
+}
+h2 {
+text-align:center;
+
+}
+
+.course {
+    background-color: #00215a;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+
+ul{
+border-left: 10px solid black;
+display: inline;
+
+}

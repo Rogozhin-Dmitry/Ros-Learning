@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Уроки</title>
+    <link rel="stylesheet" href="{% static 'css/tasks.css' %}">
+</head>
+<body>
+<div class="lessons">
+    <p>Уроки</p>
+</div>
+<ul id="ul_top_hypers">
+    {% for m in lessons %}
+    <li>
+        <div class="card">
+            <h2>{{ m.name }}</h2>
+            <a class="lesson-button" href="{{m.get_url}}">Пройти</a>
+            <p></p>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

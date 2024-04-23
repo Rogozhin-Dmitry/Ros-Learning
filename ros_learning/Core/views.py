@@ -9,6 +9,10 @@ from django.urls import reverse_lazy
 from django.contrib.auth import views as auth_views
 
 
+from .controle import Course,Controll
+from django.views import View
+from django.shortcuts import render
+
 # class MyBackend(BaseBackend):
 #     def authenticate(self, request, username=None, password=None):
 #         login_valid = settings.ADMIN_LOGIN == username
@@ -58,3 +62,13 @@ class CustomPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
 
 class CustomPasswordResetCompleteView(auth_views.PasswordResetCompleteView):
     template_name = "password_reset_complete.html"
+class Courses(View):
+    def get(self, request, *args, **kwargs):
+
+        return render(request, "Courses/courses.html", {"courses": Controll.get_user_courses(request.user.id)})
+class Tasks(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, "Tasks/tasks.html", {"tasks": Controll.get_lessons_tasks(kwargs["course_pk"], kwargs["lesson_pk"])})
+class Lessons(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, "Lessons/lessons.html", {"lessons": Controll.get_courses_lessons(kwargs["course_pk"])})

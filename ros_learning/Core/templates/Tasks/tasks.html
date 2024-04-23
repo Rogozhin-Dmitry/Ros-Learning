@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задания</title>
+</head>
+<body>
+<div class="lessons">
+    <p>Задания</p>
+</div>
+<ul id="ul_top_hypers">
+    {% for m in tasks %}
+    <li>
+        <div class="card">
+            <h2>{{ m.name }}</h2>
+            <a class="tasks-button" href="{{m.get_url}}">Пройти</a>
+            <p></p>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
