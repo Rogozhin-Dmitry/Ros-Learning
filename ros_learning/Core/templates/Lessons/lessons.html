@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Уроки</title>
-    <link rel="stylesheet" href="{% static 'css/tasks.css' %}">
+    <link rel="stylesheet" href="{% static 'css/courses.css' %}">
 </head>
 <body>
 <div class="lessons">
@@ -16,11 +16,20 @@
     <li>
         <div class="card">
             <h2>{{ m.name }}</h2>
-            <a class="lesson-button" href="{{m.get_url}}">Пройти</a>
+            <a class="course" href="{{m.get_url}}">Пройти</a>
             <p></p>
         </div>
     </li>
     {% endfor %}
 </ul>
+<div class="back">
+    <p>Вернуться к курсам</p>
+    <button class="course" onclick="goBack()">Назад</button>
+</div>
 </body>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 </html>

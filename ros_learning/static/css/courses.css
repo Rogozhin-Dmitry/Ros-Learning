@@ -1,11 +1,10 @@
 .card {
-    border: 1px solid #ccc;
-    padding: 10px;
-    background-color:#C6C6C6;
-    width: 350px;
-    height: 130px;
-    border-radius: 5px;
-    border: 2px solid black
+    background: #DCDCDC;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 65git 0px;
 }
 h2 {
 text-align:center;
@@ -16,13 +15,16 @@ text-align:center;
     background-color: #00215a;
     color: #fff;
     padding: 5px 10px;
+    margin: 20px 50px;
+    position:relative;
+    top:20%;
+    right: -37%;
     border-radius: 5px;
     text-decoration: none;
 }
 
 
 ul{
-border-left: 10px solid black;
 display: inline;
 
 }
