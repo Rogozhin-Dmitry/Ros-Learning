@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Уроки</title>
+    <script src="https://cdn.tiny.cloud/1/e23y1s2q8gu9vnjdpbb6ki3gnwexzebfpu31qhtmjazhnvr9/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+  tinymce.init({
+    selector: 'textarea',
+  });
+</script>
+    <link rel="stylesheet" href="{% static 'css/materials.css' %}">
+</head>
+<body>
+<h2>{{ materials.name }}</h2>
+<h3>Материалы</h3>
+<div class="container">
+</div>
+<textarea>
+{{ materials.description }}
+</textarea>
+</body>
+</html>

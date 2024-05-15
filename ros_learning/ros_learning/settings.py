@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "Core.apps.CoreConfig",
+    "tinymce"
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,7 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [BASE_DIR / "Templates"],
         "APP_DIRS": True,
+
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
@@ -123,3 +125,7 @@ BASE_DIR/ 'static'
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = "/"
+
+TINYMCE_JS_URL = 'https://cdn.tiny.cloud/1/e23y1s2q8gu9vnjdpbb6ki3gnwexzebfpu31qhtmjazhnvr9/tinymce/7/tinymce.min.js'
+
+TINYMCE_COMPRESSOR = False

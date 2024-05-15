@@ -72,3 +72,6 @@ class Tasks(View):
 class Lessons(View):
     def get(self, request, *args, **kwargs):
         return render(request, "Lessons/lessons.html", {"lessons": Controll.get_courses_lessons(kwargs["course_pk"])})
+class Materials(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, "Materials/materials.html", {"materials": Controll.get_tasks_materilas(kwargs["course_pk"],kwargs["lesson_pk"],kwargs["task_pk"])})

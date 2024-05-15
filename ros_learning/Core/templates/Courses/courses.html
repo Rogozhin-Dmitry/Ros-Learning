@@ -8,11 +8,12 @@
 
 </head>
 <body>
+<h1>Список курсов</h1>
 <div class="courses"><p>Список курсов</p>
 </div>
 <ul id="ul">
     {% for m in courses %}
-    <li>
+    <li id="li">
         <div class="card"><h2>{{ m.name }}</h2>
             <a class="course" href="{{ m.get_url }}">Пройти</a></div>
     </li>

@@ -1,18 +1,33 @@
 .card {
-    background: white;
-    border-radius: 20px;
-    margin: 10px;
-    padding: 20px;
-    width: 700px;
+    background: #DCDCDC;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 10px 10px;
+    padding: 30px;
+    width: 65git 0px;
+}
+h2 {
+text-align:center;
+
+}
+
+.course {
+    background-color: #00215a;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 20px 50px;
+    position:relative;
+    top:20%;
+    border-radius: 5px;
+    text-decoration: none;
 }
 
 
-
-.lesson-button {
-    display: inline-block;
-    background-color: blue;
-    color: white;
-    text-align: center;
-    border-radius: 5px;
-    text-decoration: none;
+#ul{
+display: flex;
+ flex-flow: row wrap;
+}
+#ul li {
+display: flex;
+  flex-flow: row wrap;
 }

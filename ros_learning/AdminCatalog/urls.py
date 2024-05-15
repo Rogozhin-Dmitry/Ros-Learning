@@ -12,4 +12,6 @@ urlpatterns = [
     ),
     path("admin-catalog/CoursesPage", Courses.as_view(), name="CoursesPage"),
     path("admin-catalog/Tasks", Tasks.as_view(), name="Tasks"),
+    path("admin-catalog/Materials", Tasks.as_view(), name="Tasks"),
+
 ]
